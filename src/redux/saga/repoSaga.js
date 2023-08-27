@@ -10,6 +10,7 @@ function* fetchReposHandler(action) {
     typeof "AbortController" !== undefined && new AbortController();
 
   try {
+    yield put(repoActions.setErrorState(false));
     yield put(repoActions.setLoadingState(true));
     let fromDate = moment().subtract(duration, "d").format("YYYY-MM-DD");
     let res = yield call(
@@ -34,6 +35,7 @@ function* changeDurationHandler(action) {
     typeof "AbortController" !== undefined && new AbortController();
 
   try {
+    yield put(repoActions.setErrorState(false));
     yield put(repoActions.changeDuration(action.payload));
     yield put(repoActions.resetRepos());
     yield put(repoActions.setLoadingState(true));

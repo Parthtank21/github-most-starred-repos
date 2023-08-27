@@ -10,6 +10,7 @@ function* fetchActivityHandler(action) {
     typeof "AbortController" !== undefined && new AbortController();
 
   try {
+    yield put(activityActions.setErrorState(false));
     yield put(activityActions.setLoadingState(true));
     let [commit_activity, code_frequency, contributors] = yield call(
       fetchActivityApi,
