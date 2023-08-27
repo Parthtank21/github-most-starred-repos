@@ -23,7 +23,12 @@ const Header = () => {
   };
 
   return (
-    <AppBar color="transparent" position="static" variant="outlined">
+    <AppBar
+      color="transparent"
+      position="static"
+      elevation={0}
+      variant="outlined"
+    >
       <Container>
         <Toolbar>
           <img
